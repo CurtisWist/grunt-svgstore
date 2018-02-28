@@ -409,7 +409,7 @@ module.exports = function (grunt) {
         }
 
         if (options.demoFilepath) {
-           demoPath = path.resolve(path.dirname(options.demoFilepat));
+           demoPath = path.resolve(options.demoFilepath);
         } else{
            demoPath = path.resolve(path.dirname(file.dest), destName + '-demo.html');
         }
