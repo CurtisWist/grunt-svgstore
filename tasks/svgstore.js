@@ -302,6 +302,7 @@ module.exports = function (grunt) {
         if (!!options.includedemo) {
           iconNameViewBoxArray.push({
             name: graphicId,
+            fileName: id,
             title: title
           });
         }
