@@ -145,6 +145,23 @@ The data passed to the template looks like this:
 }
 ```
 
+#### options.demoFilepath
+Type: `string`  
+Default value: `false`
+
+Specify a custom filepath for the demo to be exported to. Defaults to `destName + -demo.html` if false.
+
+```js
+grunt.initConfig({
+  svgstore: {
+    options: {
+      includedemo: true,
+      demoFilepath: 'dest/icon-demo.html'
+    }
+  }
+});
+```
+
 #### options.cleanup (since 0.2.6)
 Type: `boolean`  or `Array`
 Default value: `false`  

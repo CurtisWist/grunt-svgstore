@@ -68,6 +68,7 @@ module.exports = function (grunt) {
       symbol: {},
       formatting: false,
       includedemo: false,
+      demoFilepath: false,
       inheritviewbox: false,
       cleanupdefs: false,
       convertNameToId: defaultConvertNameToId,
@@ -391,6 +392,7 @@ module.exports = function (grunt) {
         $resultSvg.attr('style', 'width:0;height:0;visibility:hidden;');
 
         var demoHTML;
+        var demoPath;
         var viewData = {
           svg : $resultDocument.html(),
           icons : iconNameViewBoxArray
@@ -406,7 +408,12 @@ module.exports = function (grunt) {
           demoHTML = handlebars.compile(template)(viewData);
         }
 
-        var demoPath = path.resolve(path.dirname(file.dest), destName + '-demo.html');
+        if (options.demoFilepath) {
+           demoPath = path.resolve(path.dirname(file.dest), options.demoFilepath);
+        } else{
+           demoPath = path.resolve(path.dirname(file.dest), destName + '-demo.html');
+        }
+
         grunt.file.write(demoPath, demoHTML);
         grunt.log.writeln('Demo file ' + chalk.cyan(demoPath) + ' created.');
       }
